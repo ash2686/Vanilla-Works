@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Caveat:wght@400..700&family=Condiment&family=Doto:wght@100..900&family=Rubik+Beastly&family=Trade+Winds&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Trade Winds", system-ui;
+    font-weight: 200;
+    color: rgb(81, 81, 81);
+}
+
+html,body{
+    width: 100vw;
+    height: 100vh;
+    background-color: whitesmoke;
+}
+
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem 8rem;
+}
+
+.main-container .quiz-header{
+    width: 95%;
+    height: 20%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 2rem 0; */
+}
+
+.quiz-header > div{
+    width: 33.33%;
+    height: 100%;
+    /* background-color: red; */
+    /* border: 1px solid black; */
+}
+
+.quiz-header .start-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility:hidden;
+}
+
+.start-button button{
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+#start-quiz:hover{
+    background-color: rgba(0, 128, 0, 0.5) !important;
+}
+
+#start-quiz:active{
+    background-color: rgba(128, 0, 0, 0.5) !important;
+}
+
+.quiz-header .game-header{
+    /* width: 75%;
+    height: 100%; */
+     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 0 1rem; */
+    /* border: 1px solid black; */
+    
+}
+
+.game-header h1{
+    font-family: "Rubik Beastly", system-ui;
+    letter-spacing: 5px;
+    /* color: red; */
+    font-size: 2.5rem;
+    font-weight: 100;
+
+}
+.game-header p{
+    text-align: center;
+    font-weight: bolder;
+    color: black;
+    text-decoration: underline;
+    font-family: "Trade Winds", system-ui;
+}
+
+.quiz-header .quiz-score{
+    height: 95%;
+    width: 31%;       
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 0 5rem;
+    border-radius: 5px;
+    font-size: .8rem; */
+    /* background-color: rgba(192, 192, 192, 0.508); */
+    /* margin: 1rem; */
+}
+
+.quiz-score .score-circle{
+    height: 8rem;
+    width: 8rem;
+    border: 5px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: red; */
+}
+
+#score-line{
+    width: 100%;
+    height: 15%;
+    border: 1px solid black;
+    font-size: .5rem;
+    letter-spacing: 15px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding-left: .7rem;
+    /* text-decoration:line-through; */
+    /* font-weight: bolder; */
+}
+
+.score-circle h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.score-circle h2 .score-text{
+    font-size: .7rem;
+    font-weight: bolder;
+    color: black;
+    /* background-color: red; */
+    margin-top: -.5rem;
+}
+
+
+
+/* #quiz-score h2{
+    margin-top: 1rem;
+} */
+
+.main-container .game-screen{
+    width: 100%;
+    height: 55%;
+    /* background-color: rgba(240, 255, 255,.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-screen .game-block{
+    /* border: 1px solid black; */
+    width: 95%;
+    height: 95%;
+}
+
+.game-block .question-block{
+    width: 100%;
+    height: 25%;
+    border: 1px solid black;
+    
+    border-radius: 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.question-block #question{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    /* border-bottom: 1px solid black; */
+}
+
+/* .question-block #question-type{
+    width: auto;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: .9rem;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 5px;
+} */
+
+.game-block .options{
+    width: 100%;
+    height: 75%; 
+    display: flex;
+    flex-direction: column;   
+}
+
+.options .options-top,.options .options-bottom{
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+
+.answers{
+    height: 100%;
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    background-color: transparent;
+    
+}
+
+
+
+.answers:hover{
+    /* background-color: rgba(192, 192, 192, 0.1); */
+    border: 2px solid black;
+    cursor: pointer;
+    /* box-shadow: inset 1px 1px 20px 1px rgba(255, 165, 0,.5); */
+}
+
+
+
+.main-container .question-hint{
+    width: 100%;
+    height: 10%;
+    margin: auto;
+    /* background-color: rgba(255, 0, 0, 0.5); */
+        /* border: 1px solid black; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+.question-hint #q-hint{
+    width: 95%;
+    height: 95%;
+    background-color: transparent;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.qhintbg{
+        background-color: rgba(225, 255, 0, 0.7) !important;
+        border: none !important;
+        letter-spacing: 20px;
+        transition: 1s ease-in-out;
+        cursor: pointer;
+}
+
+.qhintbg:hover{
+    border: 1px solid black;
+    box-shadow: inset 1px 1px 20px 1px rgba(225, 255, 0, 0.7) !important;
+}
+
+
+
+.main-container .game-buttons{
+    width: 100%;
+    height: 15%;
+    /* background-color: rgba(0, 128, 0, 0.5); */
+        /* border: 1px solid black; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+}
+
+#next-question{
+    width: 95%;
+    height: 90%;
+    background-color: transparent;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    letter-spacing: 20px;
+    transition: .5s ease-in-out;
+    /* box-shadow: none; */
+}
+
+#next-question:hover{
+    /* letter-spacing: 2px; */
+    box-shadow: inset 2px 2px 100px 20px rgba(0, 0, 255,.5);
+    border: 1px solid black;
+}
+
+button:hover{
+    border: 2px solid black;
+    box-shadow: none;
+    /* color: blue; */
+    letter-spacing: 5px;
+}
+
+
+button{
+    box-shadow: inset 2px 2px 100px 10px rgba(0, 0, 255,.5); 
+    border:none;
+    cursor: pointer;
+}
+
+button:active{
+    /* transform: translate(1px,1px); */
+    border: 1px solid black;
+    box-shadow: none;
+}
+
+
+.correct {
+  background-color: rgba(0, 128, 0, 0.5);
+  /* box-shadow: none; */
+}
+
+.wrong{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+
+
+.start{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: grey; */
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 20087686;
+}
+
+.start-butt{
+    background-color: transparent;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    /* box-shadow: none !important; */
+    border: 2px solid rgb(231, 231, 231);
+    color: rgb(231, 231, 231);
+    font-size: 2.5rem;
+    transition: 2s;
+    border: blue;
+    color: white;
+
+}
+
+.start-butt:hover{
+    box-shadow: inset 2px 2px 100px 5px white;
+    
+    border: white;
+    color: blue;
+
+}
+
+.final{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     font-family: "Condiment", cursive;
+     background-color: rgb(0, 0, 0);
+     width: 100vw;
+     height: 100vh;
+     z-index: 324334;
+
+}
+
+.final-score{
+    width: 40rem;
+    height: 40rem;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3rem 0;
+    font-family: "Condiment", cursive;
+    box-shadow: inset 2px 2px 50px 5px white;
+    cursor: pointer;
+}
+
+.final-score> :first-child{
+    color: green;
+    /* background-color: aqua; */
+}
+
+.final-score> h1:last-child{
+    color: red;
+    /* background-color: red; */
+}
+
+.final-score-text{
+    font-size: 6rem;
+    width: 100%;
+    height: 15%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    font-family: "Condiment", cursive;
+    padding-top: 1rem;
+
+}
+
+.final-score h1{
+    font-size: 5rem;
+        font-family: "Condiment", cursive;
+        /* background-color: red; */
+
+}
+
+.final-score p{
+    font-size: 2.5rem;
+    /* margin-top: 9.5rem; */
+    letter-spacing: 20px;
+        /* text-decoration: line-through; */
+        width: 100%;
+
+}
+
+.nope{
+animation-name: nope;
+    animation-iteration-count: 5;
+
+    animation-duration: .1s;
+}
+
+@keyframes nope {
+    0%{}
+    25%{transform: rotate(-2deg);}
+    50%{transform: rotate(0);}
+    75%{transform: rotate(2deg);}
+    100%{}
+    
+}
+
+.yayy{
+    animation: yayy .3s ease 3;
+    border:none;
+    outline: 1px solid black;
+}
+
+@keyframes yayy {
+    
+    25%{
+        /* transform: scale(.8); */
+        background-color: white;
+    }
+    50%{
+        /* transform: scale(.6); */
+    background-color: rgba(0, 128, 0, 0.5);
+    }
+    50%{
+        /* transform: scale(.8); */
+    background-color: white;
+    }
+    100%{
+        /* transform: scale(1); */
+    background-color: rgba(0, 128, 0, 0.5);
+    }
+    
+    
+}
+
+/* .begin-game{
+    animation: game ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-fill-mode:none;
+    
+
+}
+
+@keyframes game {
+    0%{box-shadow: inset 2px 2px 100px 1px red}
+    50%{box-shadow: inset 2px 2px 100px 1px blue}
+    100%{box-shadow: inset 2px 2px 100px 1px green}
+    
+} */

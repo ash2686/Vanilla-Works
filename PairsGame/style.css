@@ -1,0 +1,259 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    transition: all 1s ease-in-out;
+    animation: all 1s;
+}
+
+.main-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #4f5f76;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-direction: column;
+}
+
+.top-text{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border: 1px solid rgb(68, 68, 68); */
+    font-size: 1.5rem;
+
+}
+#winner{
+    font-size: 3rem;
+    /* margin-bottom: 5rem; */
+    /* display:none; */
+    color: rgb(22, 22, 22);
+}
+
+#game-timer{
+    width: 100%;
+    height: 5%;
+    /* background-color:#020d1e; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: rgb(22, 22, 22);
+    color: rgb(102, 2, 2);
+    /* margin-top: 5rem; */
+    
+}
+
+.main-display{
+    width: 100%;
+    height: 70%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards-display{
+    width: 80%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-shelf,.bottom-shelf{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blocks{
+    width: 15%;
+    height: 80%;
+    border: 1px solid black;
+    margin: 0 1rem;
+    border-radius: 10px;
+    background: url(images/back6.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    /* color: rgb(190, 190, 190); */
+    /* transition: all 5s; */
+    /* z-index: 100; */
+    /* transform: translate(180deg); */
+    /* animation: start 1s ease-out; */
+}
+
+.block::after{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    z-index: 0;
+    background-color: rgb(0, 0, 0,1);
+}
+
+.matchEffect{
+    animation: start .5s ease-in-out;
+}
+
+.noclick{
+    pointer-events: none; 
+
+}   
+
+.noclick1{
+    background-color: #4f5f76;
+    border:0;
+    z-index:100;
+    pointer-events: none; 
+
+}  
+
+@keyframes start {
+    0%{
+        background-color:#4f5f76;
+        
+    }
+    100%{
+      background-color: paleturquoise;
+    }
+    
+}
+
+@keyframes flipCard {
+      0%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 1600px){
+    .cards-display{
+        width: 90%;
+        /* border: 1px solid black; */
+    }
+}
+
+@media only screen and (max-width: 1600px){
+    .cards-display{
+        width: 100%;
+        /* border: 1px solid black; */
+    }
+
+    .top-text{
+        font-size: 1.3rem;
+    }
+}
+
+
+@media only screen and (max-width: 1200px){
+
+.blocks{
+    width: 17%;
+}
+}
+
+@media only screen and (max-width: 960px){
+    .cards-display{
+        width: 100%;
+    }
+
+
+    .blocks{
+        width: 25%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 .5rem;
+    }
+     
+    .top-shelf,.bottom-shelf{
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
+@media only screen and (max-width: 768px){
+
+    .blocks{
+        height: 80%;
+        width: 30%;
+        margin: .4rem;
+    }
+
+    .top-shelf,.bottom-shelf{
+        width:100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* border: 1px solid black; */
+    }
+    
+    .top-shelf{
+        align-items: flex-end;
+        margin-right: 1rem;
+    }
+    .bottom-shelf{
+        align-items: flex-start;
+        margin-left: 1rem;
+    }
+    .main-display{
+        display:flex;
+        flex-direction: row;
+        height: 100%;
+        /* background-color: orange; */
+    }
+    .cards-display{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+        /* color: red; */
+        width: 100%;
+        /* flex-direction: column; */
+    }
+
+    .top-text{
+        font-size: .9rem;
+    }
+
+    #game-timer{
+    font-size: 1.5rem;
+    }
+    #winner{
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .blocks{
+        height: 60%;
+        width: 50%;
+        margin:.2rem;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .blocks{
+        width: 80%;
+    }
+    }
