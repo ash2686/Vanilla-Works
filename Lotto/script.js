@@ -39,14 +39,15 @@ function loader(){
 
 function generateTicket(){
     displayArea.innerHTML = '';
-    
+
+    lottoResults.innerHTML = '';
+    pbResults.innerHTML = '';
+    drawnNumbers = [];
+    counter = 0;
     
     ticket = {};
-
-    drawButton.disabled = false;
-
     
-
+    drawButton.disabled = false;
 
 
 function generateLine(){
