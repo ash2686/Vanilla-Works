@@ -184,14 +184,26 @@ html,body{
     transform: scale(.1) rotate(-1440deg);
 }
 
+.ticket-line .lotto-line p:nth-child(2){animation-delay: .5s;}
+.ticket-line .lotto-line p:nth-child(3){animation-delay: 1s;}
+.ticket-line .lotto-line p:nth-child(4){animation-delay: 1.5s;}
+.ticket-line .lotto-line p:nth-child(5){animation-delay: 2s;}
+.ticket-line .lotto-line p:nth-child(6){animation-delay: 2.5s;}
+.ticket-line .lotto-line p:nth-child(7){animation-delay: 3s;}
+.ticket-line .lotto-line p:nth-child(8){animation-delay: 3.5s;}
+
+
 @keyframes appear {
     0%{
         opacity: 0;
         transform: scale(.1) rotate(-1440deg)
     }
 
-    70%{
-        color: var(--red)
+    80%{
+        transform: scale(1);
+    }
+    90%{
+        transform: scale(2);
     }
 
     100%{
@@ -211,7 +223,7 @@ html,body{
     color: var(--golden);
     transform: scale(.1) rotate(-1440deg);
 
-    animation: power 3s ease forwards;
+    animation: power 3s ease 4s forwards;
     opacity: 0;
 }
 
@@ -221,8 +233,14 @@ html,body{
         transform: scale(.1) rotate(1440deg);        
     }
 
-    70%{
+    /* 70%{
         color: var(--red);
+    } */
+    80%{
+        transform: scale(1);
+    }
+    90%{
+        transform: scale(2);
     }
 
     100%{
