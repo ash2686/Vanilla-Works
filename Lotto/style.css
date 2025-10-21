@@ -164,7 +164,7 @@ html,body{
 
 .ticket-line .lotto-line{
 
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -220,7 +220,7 @@ html,body{
     
 }
 
-.ticket-line .bonus-ball{
+/* .ticket-line .bonus-ball{
     width: 10%;
     height: 100%;
     display: flex;
@@ -233,7 +233,7 @@ html,body{
     width: 30%;
     text-align: center;
     height: 100%;
-}
+} */
 
 
 
@@ -320,7 +320,7 @@ html,body{
 
 .draw-result .draw-title{
     width: 100%;
-    height: 15%;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -330,7 +330,7 @@ html,body{
 
 .draw-result .lotto-result{
     width: 100%;
-    height: 55%;
+    height: 50%;
     border: 1px solid var(--background);
     display: flex;
     flex-direction: column;
@@ -358,9 +358,40 @@ html,body{
 }
 
 .draw-result .lotto-result .lotto-result-numbers p{
-   margin: 8% 0;
+   margin: 6% 0;
 }
 
+.draw-result .bonus-result{
+     width: 100;
+    height: 15%;
+    border: 1px solid var(--background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.draw-result .bonus-result h3{
+     width: 100%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--background);
+
+}
+
+.draw-result .bonus-result .bonus-result-number{
+     width: 100%;
+    height: 65%;
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+    padding: 0 2em;
+    color: var(--background);
+
+}
 
 
 .draw-result .powerball-result{
@@ -395,7 +426,7 @@ html,body{
 
 .draw-result .draw-block{
     width: 100%;
-    height: 15%;
+    height: 10%;
 }
 
 
@@ -424,6 +455,15 @@ html,body{
     color: var(--background) !important;
     font-size: .8em !important;
     padding: .3em !important;
+}
+
+.bonus{
+    background-color: var(--red);
+    border-radius: 50%;
+    color: var(--silver) !important;
+    font-size: .8em !important;
+    padding: .3em !important;
+
 }
 
 .res-disp{

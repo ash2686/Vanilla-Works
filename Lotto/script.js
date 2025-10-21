@@ -2,9 +2,10 @@ let displayArea = document.querySelector(".ticket-display");
 let drawButton = document.querySelector("#draw");
 let lottoResults = document.querySelector(".lotto-result-numbers");
 let pbResults = document.querySelector(".powerball-result-number");
+let bonusResults = document.querySelector(".bonus-result-number");
 let ticket = {};
 let response= true;
-let interval,interval1;
+let interval,interval1,bonusInterval;
 let counter=0;
 let drawnNumbers = [];
 
@@ -78,15 +79,15 @@ for(let i=0;i<8;i++){
     lottoLineDiv.classList.add("lotto-line");    
     lottoLineDiv.textContent = 'Lotto Line';
 
-    let bonusBallDiv = document.createElement('p');
-    bonusBallDiv.classList.add("bonus-ball");
-    bonusBallDiv.textContent = 'BonusBall';
+    // let bonusBallDiv = document.createElement('p');
+    // bonusBallDiv.classList.add("bonus-ball");
+    // bonusBallDiv.textContent = 'BonusBall';
 
     let powerBallDiv = document.createElement('p');
     powerBallDiv.classList.add("power-ball");
     powerBallDiv.textContent = 'PowerBall';
 
-    lineDiv.append(lineNameDiv,lottoLineDiv,bonusBallDiv,powerBallDiv);
+    lineDiv.append(lineNameDiv,lottoLineDiv,powerBallDiv);
 
     displayArea.appendChild(lineDiv);
 
@@ -94,9 +95,16 @@ for(let i=0;i<8;i++){
 
 for( let key in ticket){
     let eachP;
+    // let bBall = lottoNumber();
 
     let powerNumber = powerBall();
-    let bonusBall = lottoNumber();
+    // let bonusBall = ()=>{
+    //      while(ticket[key].includes(bBall)){
+    //         bBall = lottoNumber();
+    //      }
+    //         return bBall;
+    // }
+   
     // console.log(`${key} - ${ticket[key]}`);
 
     let lineDiv = document.createElement('div');
@@ -117,13 +125,13 @@ for( let key in ticket){
         lottoLineDiv.appendChild(eachP);
     }
         
-    let bonusBallDiv = document.createElement('div');
-    let bonusBallNumber = document.createElement('p');
-    bonusBallDiv.classList.add("bonus-ball");
-    bonusBallNumber.classList.add("number");
+    // let bonusBallDiv = document.createElement('div');
+    // let bonusBallNumber = document.createElement('p');
+    // bonusBallDiv.classList.add("bonus-ball");
+    // bonusBallNumber.classList.add("number");
     
-    bonusBallNumber.textContent = bonusBall;
-    bonusBallDiv.appendChild(bonusBallNumber);
+    // bonusBallNumber.textContent = bonusBall();
+    // bonusBallDiv.appendChild(bonusBallNumber);
 
 
     let powerBallDiv = document.createElement('div');
@@ -134,7 +142,7 @@ for( let key in ticket){
     powerBallNumber.textContent = powerNumber;
     powerBallDiv.appendChild(powerBallNumber);
 
-    lineDiv.append(lineNameDiv,lottoLineDiv,bonusBallDiv,powerBallDiv);
+    lineDiv.append(lineNameDiv,lottoLineDiv,powerBallDiv);
 
     displayArea.appendChild(lineDiv);
 }
@@ -147,25 +155,18 @@ function drawResult(){
     drawButton.disabled = true;
     counter++;
     let newNumber = lottoNumber();
-
     
     while(drawnNumbers.includes(newNumber)){
         newNumber = lottoNumber();
     }
 
-    drawnNumbers.push(newNumber);
-    
+    drawnNumbers.push(newNumber);    
 
     let newP = document.createElement('p');
     newP.classList.add("res-disp");
     newP.textContent = `Number - ${newNumber}`;
 
     lottoResults.appendChild(newP);
-
-   
-
-    
-    let matchedIndex;
 
    let allNumbers = document.querySelectorAll(".number");
     allNumbers.forEach((num) => {
@@ -174,15 +175,40 @@ function drawResult(){
     }
   });
 
-
-
     if(counter===6){
-        interval1 = setTimeout(powerBallDraw,1000)
         clearInterval(interval);
+
+         bonusInterval = setTimeout(()=>{
+            let bonusBall = lottoNumber();
+            while(drawnNumbers.includes(bonusBall)){
+                bonusBall = lottoNumber();
+            }
+
+            console.log("Bonus Ball is - ",bonusBall)
+
+            let newP = document.createElement("p");
+            newP.classList.add("res-disp");
+            newP.textContent = `Number - ${bonusBall}`;
+
+            bonusResults.appendChild(newP);
+
+                allNumbers.forEach((num)=>{
+                    if(parseInt(num.textContent)===bonusBall){
+                        num.classList.add("bonus");
+                    }
+                })
+            
+                 interval1 = setTimeout(powerBallDraw,1000)
+        },2000)
+
+
+       
+        
     }
 }
 
 function powerBallDraw(){
+    clearTimeout(bonusInterval);
      let powerNumber = powerBall();
       let newP = document.createElement("p");
       newP.classList.add("res-disp");
