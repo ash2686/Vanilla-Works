@@ -76,6 +76,7 @@ for(let i=0;i<8;i++){
 
 
 for( let key in ticket){
+    let eachP;
 
     let powerNumber = powerBall();
     console.log(`${key} - ${ticket[key]}`);
@@ -87,9 +88,18 @@ for( let key in ticket){
     lineNameDiv.classList.add("line-name");
     lineNameDiv.textContent = key;
 
-    let lottoLineDiv = document.createElement('p');
+    let lottoLineDiv = document.createElement('div');
     lottoLineDiv.classList.add("lotto-line");    
-    lottoLineDiv.textContent = ticket[key].join("  -  ");
+    // lottoLineDiv.textContent = ticket[key].join("  -  ");
+
+    for(k=0;k<ticket[key].length;k++){
+        eachP = document.createElement('p');
+        eachP.textContent += ticket[key][k];
+        lottoLineDiv.appendChild(eachP);
+    }
+        console.log("Each Number Line", lottoLineDiv)
+   
+
 
     let powerBallDiv = document.createElement('p');
     powerBallDiv.classList.add("power-ball");
