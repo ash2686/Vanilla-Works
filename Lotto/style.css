@@ -88,15 +88,12 @@ html,body{
     width: 100%;
     height: auto;
     display: flex;
-    /* justify-content: space-evenly; */
     justify-content: flex-start;
     align-items: center;
-    /* text-decoration: underline; */
-    opacity: 0;
-    
+    /* opacity: 0;     */
 }
 
-.ticket-line:nth-child(1){animation:left 1s ease-in-out forwards 2s; transform: translateX(-120%);}
+/* .ticket-line:nth-child(1){animation:left 1s ease-in-out forwards 2s; transform: translateX(-120%);}
 .ticket-line:nth-child(2){animation:right 1s ease-in-out forwards  .4s; transform: translateX(120%);}
 .ticket-line:nth-child(3){animation:left 1s ease-in-out forwards .6s; transform: translateX(-120%);}
 .ticket-line:nth-child(4){animation:right 1s ease-in-out forwards  .8s; transform: translateX(120%);}
@@ -104,7 +101,7 @@ html,body{
 .ticket-line:nth-child(6){animation:right 1s ease-in-out forwards  1.2s; transform: translateX(120%);}
 .ticket-line:nth-child(7){animation:left 1s ease-in-out forwards  1.4s; transform: translateX(-120%);}
 .ticket-line:nth-child(8){animation:right 1s ease-in-out forwards  1.6s; transform: translateX(120%);}
-.ticket-line:nth-child(9){animation:left 1s ease-in-out forwards  1.8s; transform: translateX(-120%);}
+.ticket-line:nth-child(9){animation:left 1s ease-in-out forwards  1.8s; transform: translateX(-120%);} */
 
 @keyframes left {
     0%{
@@ -182,7 +179,22 @@ html,body{
     width: 15%;
     height: 100;
     text-align: center;
-    /* border: 1px solid red; */
+    animation: appear 3s ease forwards;
+    opacity: 0;
+    transform: rotate(-1440deg);
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+        transform: rotate(-1440deg)
+    }
+
+    100%{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    
 }
 
 .ticket-line .power-ball{
@@ -192,7 +204,29 @@ html,body{
     justify-content: space-evenly;
     align-items: center;
     color: var(--golden);
-    /* text-decoration: underline; */
+    transform: translateY(-5000%) rotate(-1440deg);
+
+    animation: power 3s ease forwards;
+    opacity: 0;
+}
+
+@keyframes power {
+    0%{
+        opacity: 0;
+        transform: translateY(-5000%) rotate(-1440deg);        
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    
+}
+
+.ticket-line .power-ball:nth-child(1){
+    animation: none;
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .ticket-line-top{
