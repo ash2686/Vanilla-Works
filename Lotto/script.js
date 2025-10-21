@@ -8,6 +8,8 @@ let interval,interval1;
 let counter=0;
 let drawnNumbers = [];
 
+drawButton.disabled = true;
+
 
 let lottoNumber = ()=>{
     let LN = Math.ceil(Math.random()*40);
@@ -36,13 +38,12 @@ function loader(){
 
 
 function generateTicket(){
-    
-    lottoResults.innerHTML = '';
-    pbResults.innerHTML = '';
     displayArea.innerHTML = '';
-    drawnNumbers = [];
-    counter = 0;
+    
+    
     ticket = {};
+
+    drawButton.disabled = false;
 
     
 
@@ -74,13 +75,17 @@ for(let i=0;i<8;i++){
 
     let lottoLineDiv = document.createElement('p');
     lottoLineDiv.classList.add("lotto-line");    
-    lottoLineDiv.textContent = 'Lotto Line'
+    lottoLineDiv.textContent = 'Lotto Line';
+
+    let bonusBallDiv = document.createElement('p');
+    bonusBallDiv.classList.add("bonus-ball");
+    bonusBallDiv.textContent = 'BonusBall';
 
     let powerBallDiv = document.createElement('p');
     powerBallDiv.classList.add("power-ball");
     powerBallDiv.textContent = 'PowerBall';
 
-    lineDiv.append(lineNameDiv,lottoLineDiv,powerBallDiv);
+    lineDiv.append(lineNameDiv,lottoLineDiv,bonusBallDiv,powerBallDiv);
 
     displayArea.appendChild(lineDiv);
 
@@ -90,6 +95,7 @@ for( let key in ticket){
     let eachP;
 
     let powerNumber = powerBall();
+    let bonusBall = lottoNumber();
     // console.log(`${key} - ${ticket[key]}`);
 
     let lineDiv = document.createElement('div');
@@ -109,8 +115,14 @@ for( let key in ticket){
         eachP.textContent += ticket[key][k];
         lottoLineDiv.appendChild(eachP);
     }
-        // console.log("Each Number Line", lottoLineDiv)
-   
+        
+    let bonusBallDiv = document.createElement('div');
+    let bonusBallNumber = document.createElement('p');
+    bonusBallDiv.classList.add("bonus-ball");
+    bonusBallNumber.classList.add("number");
+    
+    bonusBallNumber.textContent = bonusBall;
+    bonusBallDiv.appendChild(bonusBallNumber);
 
 
     let powerBallDiv = document.createElement('div');
@@ -121,7 +133,7 @@ for( let key in ticket){
     powerBallNumber.textContent = powerNumber;
     powerBallDiv.appendChild(powerBallNumber);
 
-    lineDiv.append(lineNameDiv,lottoLineDiv,powerBallDiv);
+    lineDiv.append(lineNameDiv,lottoLineDiv,bonusBallDiv,powerBallDiv);
 
     displayArea.appendChild(lineDiv);
 }
@@ -131,7 +143,7 @@ response = false;
 }
 
 function drawResult(){
-    
+    drawButton.disabled = true;
     counter++;
     let newNumber = lottoNumber();
 
@@ -185,10 +197,15 @@ function powerBallDraw(){
         }
       })
       clearTimeout(interval1);
+      
 }
 
 drawButton.addEventListener("click",runDraw);
 
 function runDraw(){
-  interval = setInterval(drawResult,1000);
+    lottoResults.innerHTML = '';
+    pbResults.innerHTML = '';
+    drawnNumbers = [];
+    counter = 0;
+  interval = setInterval(drawResult,1500);
 }

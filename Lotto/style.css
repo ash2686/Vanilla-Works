@@ -164,20 +164,24 @@ html,body{
 
 .ticket-line .lotto-line{
 
-    width: 60%;
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     color: var(--green);
     /* text-decoration: underline; */
-    padding: 0 5em;
+    padding: 0 2em;
     text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    /* border: 1px solid white; */
 
 }
 
 .ticket-line .lotto-line p{
-    width: 10%;
+    width: 8%;
     height: 100;
     text-align: center;
     /* animation: appear 3s ease forwards; */
@@ -215,6 +219,23 @@ html,body{
     }
     
 }
+
+.ticket-line .bonus-ball{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--silver);
+}
+
+.ticket-line .bonus-ball p{
+    width: 30%;
+    text-align: center;
+    height: 100%;
+}
+
+
 
 .ticket-line .power-ball{
     width: 20%;
@@ -294,6 +315,7 @@ html,body{
     display: flex;
     flex-direction: column;
     color: var(--background);
+    overflow: hidden;
 }
 
 .draw-result .draw-title{
@@ -389,11 +411,11 @@ html,body{
 
 .draw-result .draw-block button:hover{
     color: var(--silver);
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
 }
 
 .draw-result .draw-block button:active{
-    transform: scale(.9) translate(1px,2px);
+    transform: translate(1px,2px);
 }
 
 .matched{
