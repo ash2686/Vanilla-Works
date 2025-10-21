@@ -181,18 +181,23 @@ html,body{
     text-align: center;
     animation: appear 3s ease forwards;
     opacity: 0;
-    transform: rotate(-1440deg);
+    transform: scale(.1) rotate(-1440deg);
 }
 
 @keyframes appear {
     0%{
         opacity: 0;
-        transform: rotate(-1440deg)
+        transform: scale(.1) rotate(-1440deg)
+    }
+
+    70%{
+        color: var(--red)
     }
 
     100%{
         opacity: 1;
-        transform: rotate(0deg);
+        transform: scale(1) rotate(0deg);
+        color: var(--golden)
     }
     
 }
@@ -204,7 +209,7 @@ html,body{
     justify-content: space-evenly;
     align-items: center;
     color: var(--golden);
-    transform: translateY(-5000%) rotate(-1440deg);
+    transform: scale(.1) rotate(-1440deg);
 
     animation: power 3s ease forwards;
     opacity: 0;
@@ -213,19 +218,24 @@ html,body{
 @keyframes power {
     0%{
         opacity: 0;
-        transform: translateY(-5000%) rotate(-1440deg);        
+        transform: scale(.1) rotate(1440deg);        
+    }
+
+    70%{
+        color: var(--red);
     }
 
     100%{
         opacity: 1;
-        transform: translateY(0) rotate(0deg);
+        transform: scale(1) rotate(0deg);
+        color: var(--golden);
     }
     
 }
 
-.ticket-line .power-ball:nth-child(1){
+.ticket-line:first-child .power-ball{
     animation: none;
-    transform: translateY(0);
+    transform: none;
     opacity: 1;
 }
 
